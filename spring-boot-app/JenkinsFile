@@ -31,7 +31,7 @@ pipeline {
     }
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "CICD/spring-boot-app:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "cicd/spring-boot-app:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
@@ -47,7 +47,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "CICD"
+            GIT_REPO_NAME = "cicd"
             GIT_USER_NAME = "karthi770"
         }
         steps {
